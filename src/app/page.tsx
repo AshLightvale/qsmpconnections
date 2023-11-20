@@ -21,6 +21,7 @@ import {
 type Connection = {
 	name?: string;
 	color?: string;
+	isTip?: boolean;
 	items: string[];
 };
 
@@ -83,7 +84,8 @@ export default function Game() {
 	const result = (memory[today] || []).map((attempt) =>
 		attempt.color
 			? ["🟩", "🟨", "🟥", "🟦"][COLORS.indexOf(attempt.color)]
-			: "❌"
+			: attempt.isTip ? "💡" : "❌"
+			// : "❌" (sem diferenciar dica de erro)
 	);
 
 	const tries = (memory[today] || []).length;
@@ -118,6 +120,11 @@ export default function Game() {
       ...savedRevealedTips,
       [today]: { items: randomItems, connection: randomConnection },
     });
+
+	setAttempts((old) => [
+		...old,
+		{ name: undefined, items: [], isTip: true },
+	]);
   	};
 	
 	function selectFourHandler(selected: string[]) {

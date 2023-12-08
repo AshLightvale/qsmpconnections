@@ -682,7 +682,7 @@ export const ALL_CONNECTIONS: {
 		},
 		{
 			name: "Fizeram_Acordos",
-			items: ["Spreen", "Slimicicle", "Maximus", "Vegetta"],
+			items: ["Spreen", "Slimecicle", "Maximus", "Vegetta"],
 		},
 		{
 			name: "Anglofonos_Direita",

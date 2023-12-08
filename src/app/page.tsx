@@ -321,7 +321,7 @@ export default function Game() {
 	const date = now.getDate()
 	const month = now.getMonth() + 1
 	const year = now.getFullYear()
-	const today = date.toString() + month.toString() + year.toString()
+	const today = 8122023//date.toString() + month.toString() + year.toString()
 
 	const getTranslation = (key: string, language: string = 'en'): string => {
 	  	const connectionId = ALL_CONNECTIONS[today].find(connection => connection.name == key);
@@ -469,6 +469,46 @@ return (translations[language][key]) || key;
 };
 	return (
 		<div className="max-w-[512px] w-[90%] my-12 flex flex-col items-center">
+			<Dialog defaultOpen>
+				<DialogContent>
+					<DialogHeader>
+						<DialogTitle>Fim</DialogTitle>
+						<main className="space-y-2">
+							<p>Olá, sou Ash, eu vim atualizando o QSMP Conexões, criado pela Feyli.</p>
+							<p>
+								Tentei o máximo que pude manter o QSMP
+								Conexões aberto. Porém assim como Feyli
+								eu também quero focar em outros projetos. 
+								Além do fato que diaramente pensar em conexões
+								vem me estressando.
+							</p>
+							<p>
+								Enquanto eu poderia manter o site em um Loop, isso requiriria diversas mudanças no 
+								código e sinceramente, não me sinto motivada para mudar tudo que é necessário
+			 					por isso, simplesmente irei manter o site preso no dia 08/12.
+							</p>
+							<p>
+								E se você é programador e se interessar em
+								manter o QSMP Conexões por conta própria,
+								sinta-se completamente livre para utilizar 
+								essa template:
+								do{" "}
+								<Link
+									href="https://github.com/AshLightvale/qsmpconexoes"
+									target="_blank"
+									className="text-primary hover:underline"
+								>
+									repositório do site
+								</Link>
+								.
+							</p>
+							<p>
+								Enfim, obrigado por todo o apoio ao projeto meu e da Feyli.
+							</p>
+						</main>
+					</DialogHeader>
+				</DialogContent>
+			</Dialog>
 			<header className="flex items-right w-full">
 			        <LanguageDropdown
           				selectedLanguage={selectedLanguage}

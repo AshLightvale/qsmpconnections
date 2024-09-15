@@ -300,6 +300,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, h
 type Connection = {
 	name?: string;
 	color?: string;
+	isTip?: boolean;
 	items: string[];
 };
 
@@ -390,7 +391,8 @@ return (translations[language][key]) || key;
 	const result = (memory[today] || []).map((attempt) =>
 		attempt.color
 			? ["🟩", "🟨", "🟥", "🟦"][COLORS.indexOf(attempt.color)]
-			: "❌"
+			: attempt.isTip ? "💡" : "❌"
+			// : "❌" (sem diferenciar dica de erro)
 	);
 
 	const tries = (memory[today] || []).length;
@@ -425,6 +427,11 @@ return (translations[language][key]) || key;
       ...savedRevealedTips,
       [today]: { items: randomItems, connection: randomConnection },
     });
+
+	setAttempts((old) => [
+		...old,
+		{ name: undefined, items: [], isTip: true },
+	]);
   	};
 	
 	function selectFourHandler(selected: string[]) {
